@@ -3,10 +3,7 @@ package com.java.gabriel.userdept.controller;
 import com.java.gabriel.userdept.repository.UserRepository;
 import com.java.gabriel.userdept.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,12 @@ public class UserController {
     @GetMapping(value = "{id}")
     public User findById(@PathVariable Long id){
         User result = userRepository.findById(id).get();
+        return result;
+    }
+
+    @PostMapping
+    public User insert(@RequestBody User user){
+        User result = userRepository.save(user);
         return result;
     }
 }
