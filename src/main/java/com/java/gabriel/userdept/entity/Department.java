@@ -3,9 +3,10 @@ package com.java.gabriel.userdept.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "tb_department")
 public class Department {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     private String name;
